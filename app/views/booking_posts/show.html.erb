@@ -1,0 +1,213 @@
+<style>
+  .slider .indicators .indicator-item.active {
+    background-color: grey;
+  }
+</style>
+<p id="notice"><%= notice %></p>
+<br>
+<div class="row">
+  <div class="col s12 m6 offset-m3 ">
+    <div class="card hoverable">
+
+
+
+  <div class="slider">
+    <ul class="slides">
+    <% @booking_pictures.each do |pic| %>
+      <%if pic.photo.present?%>
+        <li>
+          <%= image_tag pic.photo.url(:large)%>
+          <% if current_user.present? and current_user.admin? %>
+            <div class="caption center-align", style="color: black;">
+              <h5><%= link_to t(:destroy), [pic.booking_post, pic], class: "waves-effect waves-light btn red", method: :delete, data: { confirm: 'Are you sure?' }  %></h5>
+            </div>
+          <% end %>
+        </li>
+      <%end%>
+    <% end %>
+    </ul>
+  </div>
+  <% if current_page?(locale: :ua) %>
+  <div class="card-content">
+    <span class="card-title truncate"><td><%= @booking_post.title %></td></span>
+    <p><%= simple_format(@booking_post.description)%></p>
+  </div>
+  <% elsif current_page?(locale: :ru) %>
+  <div class="card-content">
+    <span class="card-title truncate"><td><%= @booking_post.title2 %></td></span>
+    <p><%= simple_format(@booking_post.description2)%></p>
+  </div>  
+  <% end %>
+<br>
+
+
+<% if current_user.present? and current_user.admin? %>
+<div class="card-action">
+      <%= form_for([@booking_picture.booking_post, @booking_picture], html: {multipart: true}, class: "col s12") do |f| %>
+        <% if @booking_picture.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@booking_picture.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+            <ul>
+            <% @booking_picture.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="file-field input-field">
+          <div class="btn">
+            <span><%= t(:booking_picture)%></span>
+            <%= f.file_field :photo %>
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+
+        <div class="waves-effect waves-light btn">
+          <%= f.submit t(:add_booking_picture)%>
+        </div>  
+    
+      <% end %>
+</div>
+<% end %>   
+
+        <!-- reserve -->
+        <div class="card-action">
+          <%= form_for([@reservation.booking_post, @reservation], html: {multipart: true}, class: "col s12") do |f| %>
+          <% if @reservation.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+              <ul>
+              <% @reservation.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="col s6">
+            <%= f.label :start %>
+            <%= f.date_field :start, placeholder: "start time",  class: "datepicker" %>
+          </div>
+          <div class="col s6">
+            <%= f.label :end %>
+            <%= f.date_field :end, placeholder: "end time",  class: "datepicker" %>
+          </div>
+          <div class="input-field col s6">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: "validate" %>
+          </div>
+          <div class="input-field col s6">
+            <%= f.label :email %>
+            <%= f.text_field :email, class: "validate" %>
+          </div>
+          <div class="input-field col s6">
+            <%= f.label :phone_number %>
+            <%= f.text_field :phone_number, class: "validate" %>
+          </div>
+
+          <div class="waves-effect waves-light btn">
+            <%= f.submit t(:submit_reservation)%>
+          </div>  
+          
+        <% end %>
+        <br>
+        </div>
+
+        <!-- reserves -->
+
+        <div class="card-action">
+          <h5><%= t(:booked_title)%></h5>
+          <% @reservations.each do |r| %>
+            <% if r.start.present? and r.end.present? %>
+            <br><%= t(:from)%>
+              <%= r.start.to_s%>
+              <%= t(:till)%>
+              <%= r.end.to_s%>
+            <% end %>
+          <% end %>
+        </div>
+
+
+        <!---------------------->
+       
+      <br>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="container center">
+	 
+	<%= link_to t(:back), booking_posts_path, class: "waves-effect waves-light btn grey lighten-3"  %>
+  <% if current_user.present? and current_user.admin? %>
+  <%= link_to t(:edit), edit_booking_post_path(@booking_post), class: "waves-effect waves-light btn" %>
+	<%= link_to t(:destroy), @booking_post, method: :delete, data: { confirm: 'Are you sure?' }, class: "waves-effect waves-light btn red" %>
+  <% end %>
+</div>
+<% if current_user.present? and current_user.admin? %>
+      	<div class="container center">
+      	<% @booking_pictures.each do |pic| %>
+      	<%if pic.photo.present?%>
+      	<br>
+        	<%= image_tag pic.photo.url(:large)%>
+      	<%end%>	
+      	<% end %>
+      	</div>
+<% end %>
+
+
+<% if current_page?(locale: :ua) %>
+        <!--Materializecss Slider-->
+        <script>
+            $(document).ready(function () {
+               
+            });
+                $('.datepicker').pickadate({
+                selectMonths: true, // Creates a dropdown to control month
+                labelMonthNext: 'Наступний місяць',
+                labelMonthPrev: 'Попередній місяць',
+                labelMonthSelect: 'Обрати місяць',
+                labelYearSelect: 'Обрати рік',
+                monthsFull: [ 'Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень', 'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень' ],
+                monthsShort: [ 'Січ', 'Лют', 'Бер', 'Кві', 'Тра', 'Чер', 'Лип', 'Сер', 'Вер', 'Жов', 'Лис', 'Гру' ],
+                weekdaysFull: [ 'Неділя', 'Понеділок', 'Вівторок', 'Середа', 'Четвер', 'П\'ятниця', 'Субота' ],
+                weekdaysShort: [ 'Нед', 'Пон', 'Вів', 'Сер', 'Чет', 'П\'ят', 'Суб' ],
+                weekdaysLetter: [ 'Н', 'П', 'В', 'С', 'Ч', 'П', 'С' ],
+                today: 'Сьогодні',
+                clear: 'Очис',
+                close: 'Скас',
+                firstDay: 1
+              });
+        </script>
+<% end %>
+
+
+<% if current_page?(locale: :ru) %>
+        <!--Materializecss Slider-->
+        <script>
+            $(document).ready(function () {
+               
+            });
+                $('.datepicker').pickadate({
+                selectMonths: true, // Creates a dropdown to control month
+                labelMonthNext: 'Следующий месяц',
+                labelMonthPrev: 'Предыдущий месяц',
+                labelMonthSelect: 'Выбрать месяц',
+                labelYearSelect: 'Выбрать год',
+                monthsFull: [ 'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь' ],
+                monthsShort: [ 'Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек' ],
+                weekdaysFull: [ 'Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота' ],
+                weekdaysShort: [ 'Вос', 'Пон', 'Вто', 'Сре', 'Чет', 'Пят', 'Суб' ],
+                weekdaysLetter: [ 'В', 'П', 'В', 'С', 'Ч', 'П', 'С' ],
+                today: 'Сегодня',
+                clear: 'Очис',
+                close: 'Отм',
+                firstDay: 1
+              });
+        </script>
+<% end %>

@@ -1,0 +1,175 @@
+<style>
+  .slider .indicators .indicator-item.active {
+    background-color: grey;
+  }
+</style>
+<p id="notice"><%= notice %></p>
+<% if current_page?(locale: :ua) %>
+  <div class="slider">
+    <ul class="slides">
+    <% @post_slides.each do |post_slide| %>
+      <% if post_slide.photo.present? %>
+      <li>
+      <% if post_slide.photo.present?%>
+        <%= image_tag post_slide.photo.url(:large)%>
+        <%if post_slide.position.align == "left" %>
+          
+        <%if post_slide.black == true%>
+          <div class="caption left-align", style="color: black;">
+            <h3><%= post_slide.title %></h3>
+            <h5><%= post_slide.description%></h5>
+          </div>
+        <%else%>
+          <div class="caption left-align">
+            <h3><%= post_slide.title %></h3>
+            <h5 class="light grey-text text-lighten-3"><%= post_slide.description%></h5>
+          </div>
+        <%end%>
+
+        <%elsif post_slide.position.align == "center" %>
+          
+        <%if post_slide.black == true%>
+          <div class="caption center-align", style="color: black;">
+            <h3><%= post_slide.title %></h3>
+            <h5><%= post_slide.description%></h5>
+          </div>
+        <%else%>
+          <div class="caption center-align">
+            <h3><%= post_slide.title %></h3>
+            <h5 class="light grey-text text-lighten-3"><%= post_slide.description%></h5>
+          </div>
+        <%end%>
+
+        <%elsif post_slide.position.align == "right"%>
+          
+        <%if post_slide.black == true%>
+          <div class="caption right-align", style="color: black;">
+            <h3><%= post_slide.title %></h3>
+            <h5><%= post_slide.description%></h5>
+          </div>
+        <%else%>
+          <div class="caption right-align">
+            <h3><%= post_slide.title %></h3>
+            <h5 class="light grey-text text-lighten-3"><%= post_slide.description%></h5>
+          </div>
+        <%end%>
+
+        <%end%>
+      <% end %>
+      </li>
+      <% end %>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<% if current_page?(locale: :ru) %>
+  <div class="slider">
+    <ul class="slides">
+    <% @post_slides.each do |post_slide| %>
+      <% if post_slide.photo.present? %>
+      <li>
+      <% if post_slide.photo.present?%>
+        <%= image_tag post_slide.photo.url(:large)%>
+        <%if post_slide.position.align == "left" %>
+          
+        <%if post_slide.black == true%>
+          <div class="caption left-align", style="color: black;">
+            <h3><%= post_slide.title2 %></h3>
+            <h5><%= post_slide.description2%></h5>
+          </div>
+        <%else%>
+          <div class="caption left-align">
+            <h3><%= post_slide.title2 %></h3>
+            <h5 class="light grey-text text-lighten-3"><%= post_slide.description2%></h5>
+          </div>
+        <%end%>
+
+        <%elsif post_slide.position.align == "center" %>
+          
+        <%if post_slide.black == true%>
+          <div class="caption center-align", style="color: black;">
+            <h3><%= post_slide.title2 %></h3>
+            <h5><%= post_slide.description2%></h5>
+          </div>
+        <%else%>
+          <div class="caption center-align">
+            <h3><%= post_slide.title2 %></h3>
+            <h5 class="light grey-text text-lighten-3"><%= post_slide.description2%></h5>
+          </div>
+        <%end%>
+
+        <%elsif post_slide.position.align == "right"%>
+          
+        <%if post_slide.black == true%>
+          <div class="caption right-align", style="color: black;">
+            <h3><%= post_slide.title2 %></h3>
+            <h5><%= post_slide.description2%></h5>
+          </div>
+        <%else%>
+          <div class="caption right-align">
+            <h3><%= post_slide.title2 %></h3>
+            <h5 class="light grey-text text-lighten-3"><%= post_slide.description2%></h5>
+          </div>
+        <%end%>
+
+        <%end%>
+      <% end %>
+      </li>
+      <% end %>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<% if current_user.present? and current_user.admin? %>  
+  <%= link_to t(".edit_slider"), post_slides_path, class: "waves-effect waves-light btn"  %>
+<% end %>
+<% if current_page?(locale: :ua) %>
+<div class="row">
+    <div class="col s12 m6 offset-m3 ">
+      <div class="card hoverable">
+        <div class="card-image">
+          <%= image_tag @post.photo.url(:large) %>
+            <%if @post.black == true%>
+              <span class="card-title truncate", style="color: black;"><td><%= @post.title %></td></span>
+            <%else%>
+              <span class="card-title truncate"><td><%= @post.title %></td></span>
+            <%end%>      
+        </div>
+        <div class="card-content">
+          <p><%= simple_format(@post.description)%></p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% if current_page?(locale: :ru) %>
+<div class="row">
+    <div class="col s12 m6 offset-m3 ">
+      <div class="card hoverable">
+        <div class="card-image">
+          <%= image_tag @post.photo.url(:large) %>
+            <%if @post.black == true%>
+              <span class="card-title truncate", style="color: black;"><td><%= @post.title2 %></td></span>
+            <%else%>
+              <span class="card-title truncate"><td><%= @post.title2 %></td></span>
+            <%end%>      
+        </div>
+        <div class="card-content">
+          <p><%= simple_format(@post.description2)%></p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+  <div class="container center">
+    <%= link_to t(:back), posts_path, class: "waves-effect waves-light btn grey lighten-3"  %>
+  	<% if current_user.present? and current_user.admin? %>
+    <%= link_to t(:edit), edit_post_path(@post), class: "waves-effect waves-light btn" %> 
+  	<%= link_to t(:destroy), @post, method: :delete, data: { confirm: 'Are you sure?' }, class: "waves-effect waves-light btn red" %>
+    <% end %>
+  </div>
+

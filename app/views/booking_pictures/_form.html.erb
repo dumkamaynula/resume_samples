@@ -1,0 +1,25 @@
+<% if current_user.present? and current_user.admin? %>
+<%= form_for(booking_picture) do |f| %>
+  <% if booking_picture.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(booking_picture.errors.count, "error") %> prohibited this booking_picture from being saved:</h2>
+
+      <ul>
+      <% booking_picture.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :booking_post_id %>
+    <%= f.number_field :booking_post_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<% end %>
+

@@ -1,0 +1,11 @@
+<% if current_user.present? and current_user.admin? %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Booking post:</strong>
+  <%= @booking_picture.booking_post_id %>
+</p>
+
+<%= link_to 'Edit', edit_booking_picture_path(@booking_picture) %> |
+<%= link_to 'Back', booking_pictures_path %>
+<% end %>

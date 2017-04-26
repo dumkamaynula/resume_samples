@@ -1,0 +1,29 @@
+<% if current_user.present? and current_user.admin? %>
+<p id="notice"><%= notice %></p>
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Booking post</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @booking_pictures.each do |booking_picture| %>
+      <tr>
+        <td><%= booking_picture.booking_post_id %></td>
+        <td><%= link_to 'Show', booking_picture %></td>
+        <td><%= link_to 'Edit', edit_booking_picture_path(booking_picture) %></td>
+        <td><%= link_to 'Destroy', booking_picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Booking Picture', new_booking_picture_path %>
+<% end %>

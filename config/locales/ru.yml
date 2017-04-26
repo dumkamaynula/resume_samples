@@ -1,0 +1,171 @@
+ru:
+  main_shots:
+    index:
+      title: Сообщения главной страницы
+      add: Добавить сообщение
+    edit:
+      title: Редактировать сообщение главной страницы
+    new:
+      title: Создать сообщение главной страницы
+  posts:
+    index:
+      title: Новости
+      edit_slider: Редактировать слайдер
+      add: Добавить новость
+    new:
+      title: Создать новость
+    show: 
+      edit_slider: Редактировать слайдер
+    edit:
+      title: Редактировать новость
+  albums:
+    index:
+      title: Альбомы
+      add: Добавить альбом
+    new:
+      title: Создать альбом
+    show:
+    edit:
+      title: Редактировать альбом
+  entertainments:
+    index:
+      title: Услуги
+      add: Добавить услугу
+    new:
+      title: Создать услугу
+    edit:
+      title: Редактировать услугу
+  booking_posts:
+    index:
+      title: Бронирование
+      add: Добавить номер
+    new:
+      title: Создать номер
+    edit:
+      title: Редактировать номер
+  post_slides:
+    new:
+      title: Создать слайд новостей
+    edit:
+      title: Редактировать слайд новостей
+    index:
+      title: Слайды страницы новостей
+      add: Добавить слайд
+
+  contact_us_title: Сообщения
+  contact_us_email: E-mail
+  contact_us_message: Сообщение
+  contact_us_sent_at: Было отправлено
+
+  booked_title: Забронированные даты
+  contacts_title: Контакты
+  new_contact_title: Добавить контакты
+  presents_message: Страница контактов существует
+  edit_contacts: Редактировать контакты
+  destroy_contact_page: Удалить страницу контактов
+  index_phone: Телефон 1
+  phone: Телефон 
+  phone2: Телефон 2
+  phone3: Телефон 3
+  index_address: Aдрес
+  address: Aдрес (ua)
+  address2: Aдрес (ru)
+  index_description: Описание
+  description: Описание (ua)
+  description2: Описание (ru)
+  index_how_to_get: Как добраться
+  how_to_get: Как добраться (ua)
+  how_to_get2: Как добраться (ru)
+  send: Отправить сообщение
+
+
+  from: с
+  till: по
+  
+  helpers:
+    label:
+      post:
+        title: Название (ua)
+        description: Описание (ua)
+        title2: Название (ru)
+        description2: Описание (ru)        
+        black: Название черным цветом
+      main_shot:
+        title: Название (ua)
+        description: Описание (ua)
+        title2: Название (ru)
+        description2: Описание (ru)
+      album:
+        title: Название (ua)
+        description: Опис (ua)
+        title2: Название (ru)
+        description2: Опис (ru)
+        black: Название черным цветом
+      entertainment:
+        title: Название (ua)
+        description: Описание (ua)
+        title2: Название (ru)
+        description2: Описание (ru)
+        black: Название черным цветом
+      booking_post:
+        title: Название | цена (ua)
+        description: Описание (ua)
+        title2: Название | цена (ru)
+        description2: Описание (ru)
+      reservation:
+        start: Дата заезда
+        end: Дата отъезда
+        name: Ф.И.О.
+        email: E-mail
+        phone_number: Контактный телефон
+      contact_u:
+        email: Ваш email
+        message: Сообщение
+      post_slide:
+        title: Название (ua)
+        description: Описание (ua)
+        title2: Название (ru)
+        description2: Описаниеs (ru)
+        black: Название чорным цветом
+  reservations: Бронирование
+  edit_reservation: Редактировать бронирование
+  booking_post: Объект бронирования
+  start: Дата заезда
+  end: Дата отъезда
+  name: Ф.И.О.
+  email: E-mail
+  phone_number: Контактный телефон
+
+  submit_post_slide: Добавить слайд
+  booking_picture: Выбрать изображение для слайдера
+  add_booking_picture: Добавить изображение
+
+  submit_reservation: Забронировать
+  photo: Фото
+  cover:  Обложка
+  album_picture: Выбрать изображение для альбома 
+  add_album_picture: Добавить изображение
+
+  add: Добавить
+  details: Детальнее 
+  edit: Редактировать
+  destroy: Удалить
+  back: Назад
+  show: Показать
+
+
+  main: Главная
+  news: Новости
+  booking: Бронирование
+  gallery: Галерея
+  entertainment: Услуги
+  contacts: Контакты
+  settings: Настройки
+  logout: Выйти
+  profile: Админка
+  reservation_list: Заказы
+  contact_us: Сообщения
+
+  will_paginate:
+    next_label: Далее
+    previous_label: Назад

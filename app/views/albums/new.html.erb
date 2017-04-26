@@ -1,0 +1,8 @@
+<h2 class="center"><%= t(".title")%></h2>
+
+<%= render 'form', album: @album %>
+
+<br>
+<div class="container center">
+	<%= link_to t(:back), albums_path, class: "waves-effect waves-light btn "  %>
+</div>

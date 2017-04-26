@@ -1,0 +1,82 @@
+<style type="text/css">
+  .pagination li.active {
+    background: grey;
+}
+  .pagination li a:hover {
+    background: #eeeeee;
+  }
+</style>
+<p id="notice"><%= notice %></p>
+
+
+
+<% if current_user.present? and current_user.admin? %>
+<div class="container center">
+<%= link_to t(".add"), new_album_path, class: "waves-effect waves-light btn midle" %>
+</div>
+<% end %>
+</br>
+<div class="container">    
+    <% @albums.each do |album| %>
+    <% if current_page?(locale: :ua) %>
+      <div class="row">
+        <div class="col s12 m8 offset-m2">
+          <div class="card hoverable">
+            <div class="card-image">
+              <%= image_tag album.cover.url(:large) %>
+              <%if album.black == true %>
+              <span class="card-title truncate", style="color: black;"><td><%= album.title %></td></span>
+              <%else%>
+              <span class="card-title truncate"><td><%= album.title %></td></span>
+              <%end%>            
+            </div>
+              <div class="card-content">
+                <p><%= truncate(simple_format(album.description), escape: false, length: 300) %></p>
+              </div>
+            <div class="card-action">
+              <%= link_to t(:details), album_path(album) %>
+            <% if current_user.present? and current_user.admin? %>
+              <%= link_to t(:edit), edit_album_path(album) %>
+              <%= link_to t(:destroy), album, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% elsif current_page?(locale: :ru) %>
+      <div class="row">
+        <div class="col s12 m8 offset-m2">
+          <div class="card hoverable">
+            <div class="card-image">
+              <%= image_tag album.cover.url(:large) %>
+              <%if album.black == true %>
+              <span class="card-title truncate", style="color: black;"><td><%= album.title2 %></td></span>
+              <%else%>
+              <span class="card-title truncate"><td><%= album.title2 %></td></span>
+              <%end%>            
+            </div>
+              <div class="card-content">
+                <p><%= truncate(simple_format(album.description2), escape: false, length: 300) %></p>
+              </div>
+            <div class="card-action">
+              <%= link_to t(:details), album_path(album) %>
+            <% if current_user.present? and current_user.admin? %>
+              <%= link_to t(:edit), edit_album_path(album) %>
+              <%= link_to t(:destroy), album, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <% end %>
+</div>
+<% if current_user.present? and current_user.admin? %>
+<div class="container center">
+<%= link_to t(".add"), new_album_path, class: "waves-effect waves-light btn midle" %>
+</div>
+<% end %>
+</br>
+<div class="center">
+<%= will_paginate @albums %>
+</div>

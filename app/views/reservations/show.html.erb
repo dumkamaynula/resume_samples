@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= t(:booking_post)%>:</strong>
+  <%= @reservation.booking_post.title %>
+</p>
+
+<p>
+  <strong><%= t(:email)%>:</strong>
+  <%= @reservation.email %>
+</p>
+
+<p>
+  <strong><%= t(:phone_number)%>:</strong>
+  <%= @reservation.phone_number %>
+</p>
+
+<p>
+  <strong><%= t(:name)%>:</strong>
+  <%= @reservation.name %>
+</p>
+<div class="container center">
+<%= link_to t(:edit), edit_reservation_path(@reservation), class: "waves-effect waves-light btn" %> 
+<%= link_to t(:back), reservations_path, class: "waves-effect waves-light btn" %>
+</div>
+

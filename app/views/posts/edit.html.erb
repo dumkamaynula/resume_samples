@@ -1,0 +1,8 @@
+<h2 class="center"><%= t(".title")%></h2>
+
+<%= render 'form', post: @post %>
+<br>
+<div class="container center">
+	<%= link_to t(:edit), @post, class: "waves-effect waves-light btn" %> 
+	<%= link_to t(:back), posts_path, class: "waves-effect waves-light btn"  %>
+</div>

@@ -1,0 +1,106 @@
+
+<p id="notice"><%= notice %></p>
+<% if current_page?(locale: :ua) %>
+	<div class="row">
+    <div class="col s12 m6 offset-m3 ">
+      <div class="card hoverable">
+        <div class="card-image">
+          <%= image_tag @album.cover.url(:large) %>
+          <%if @album.black == true%>
+              <span class="card-title truncate", style="color: black;"><td><%= @album.title %></td></span>
+          <%else%>
+              <span class="card-title truncate"><td><%= @album.title %></td></span>
+          <%end%> 
+        </div>
+        <div class="card-content">
+          <p><%= simple_format(@album.description)%></p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% elsif current_page?(locale: :ru) %>
+  <div class="row">
+    <div class="col s12 m6 offset-m3 ">
+      <div class="card hoverable">
+        <div class="card-image">
+          <%= image_tag @album.cover.url(:large) %>
+          <%if @album.black == true%>
+              <span class="card-title truncate", style="color: black;"><td><%= @album.title2 %></td></span>
+          <%else%>
+              <span class="card-title truncate"><td><%= @album.title2 %></td></span>
+          <%end%> 
+        </div>
+        <div class="card-content">
+          <p><%= simple_format(@album.description2)%></p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<% if current_user.present? and current_user.admin? %>
+<div class="container center">
+	<%= link_to t(:edit), edit_album_path(@album), class: "waves-effect waves-light btn" %> 
+	
+	<%= link_to t(:destroy), @album, method: :delete, data: { confirm: 'Are you sure?' }, class: "waves-effect waves-light btn red" %>
+</div>
+<% end %>
+<br>
+
+<% if current_user.present? and current_user.admin? %>
+<div class="row">
+  <div class="col s6 offset-s3">
+    
+  <%= form_for([@image.album, @image], html: {multipart: true}, class: "col s12") do |f| %>
+    <% if @image.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@image.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+        <ul>
+        <% @image.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="file-field input-field">
+        <div class="btn">
+          <span><%= t(:album_picture)%></span>
+          <%= f.file_field :picture %>
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+    </div>
+
+    <div class="waves-effect waves-light btn">
+      <%= f.submit t(:add_album_picture)%>
+    </div>  
+    
+  <% end %>
+    
+  </div>
+</div>
+<% end %>
+<br>
+
+    <% @images.each do |image| %>
+      <%if image.picture.present?%>
+      <div class="row">
+        <div class="col s12 m6 offset-m3 ">
+          <div class="card hoverable">
+            <div class="card-image">
+              <%= image_tag image.picture.url(:large) %>           
+            </div>
+            <% if current_user.present? and current_user.admin? %>
+            <div class="card-action">
+              <%= link_to t(:destroy), [image.album, image], method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <%end%>
+    <% end %>
+<div class="container center">    
+  <%= link_to t(:back), albums_path, class: "waves-effect waves-light btn grey lighten-3"  %>
+</div>

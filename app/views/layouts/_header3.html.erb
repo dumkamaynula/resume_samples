@@ -1,0 +1,40 @@
+<style>
+  .navbar-fixed ul li a {
+  padding: 1.54em
+}
+
+</style>
+<header>
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper">
+      <%= image_tag "Logo", class:"brand-logo"%>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li class=""><%= link_to t(:main), main_shots_path, style:"color: black;"%></li>
+        <li><%= link_to t(:news), posts_path, style:"color: black;"%></li>
+        <li><%= link_to t(:gallery), albums_path, style:"color: black;"%></li>
+        <li><%= link_to t(:entertainment), entertainments_path, style:"color: black;"%></li>
+        <li><%= link_to t(:booking), booking_posts_path, style:"color: black;"%></li>
+        <li><%= link_to t(:contacts), contacts_path, style:"color: black;"%></li>
+
+        <%= content_tag :li do %>
+        <%= link_to "RU/UA", locale: :ua%>
+        <%end unless current_page?(locale: :ua)%>
+
+        <%= content_tag :li do %>
+        <%= link_to "UA/RU", locale: :ru%>
+        <%end unless current_page?(locale: :ru)%>
+        <% if current_user.present? and current_user.admin? %>
+          <li><%= link_to t(:reservation_list), reservations_path, style:"color: black;"%></li>
+          <li><%= link_to t(:contact_us), contact_us_path, style:"color: black;"%></li>
+        <% end %>
+        <% if logged_in? %>
+        <li><%= link_to t(:settings), edit_user_path(current_user), style:"color: black;" %></li>
+        <li><%= link_to t(:logout), logout_path, method: "delete", style:"color: black;" %></li>
+        <% end %>
+
+      </ul>
+    </div>
+  </nav>
+</div>
+</header>

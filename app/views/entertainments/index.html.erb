@@ -1,0 +1,82 @@
+<style type="text/css">
+  .pagination li.active {
+    background: grey;
+}
+  .pagination li a:hover {
+    background: #eeeeee;
+  }
+</style>
+<p id="notice"><%= notice %></p>
+
+
+<% if current_user.present? and current_user.admin? %>
+<div class="container center">
+  <%= link_to t(".add"), new_entertainment_path, class: "waves-effect waves-light btn midle" %>
+</div>
+<% end %>
+</br>
+<div class="container">    
+    <% @entertainments.each do |e| %>
+    <% if current_page?(locale: :ua)%>
+      <div class="row">
+        <div class="col s12 m8 offset-m2 ">
+          <div class="card hoverable">
+            <div class="card-image">
+              <%= image_tag e.photo.url(:large) %>
+              <%if e.black == true%>
+              <span class="card-title truncate", style="color: black;"><td><%= e.title %></td></span>
+              <%else%>
+              <span class="card-title truncate"><td><%= e.title %></td></span>
+              <%end%>            
+            </div>
+            <div class="card-content">
+              <p><%= simple_format(e.description)%></p>
+            </div>
+            <div class="card-action">
+              <%= link_to t(:details), entertainment_path(e) %>
+              <% if current_user.present? and current_user.admin? %>
+              <%= link_to t(:edit), edit_entertainment_path(e) %>
+              <%= link_to t(:destroy), e, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% elsif current_page?(locale: :ru)%>
+      <div class="row">
+        <div class="col s12 m8 offset-m2 ">
+          <div class="card hoverable">
+            <div class="card-image">
+              <%= image_tag e.photo.url(:large) %>
+              <%if e.black == true%>
+              <span class="card-title truncate", style="color: black;"><td><%= e.title2 %></td></span>
+              <%else%>
+              <span class="card-title truncate"><td><%= e.title2 %></td></span>
+              <%end%>            
+            </div>
+            <div class="card-content">
+              <p><%= simple_format(e.description2)%></p>
+            </div>
+            <div class="card-action">
+              <%= link_to t(:details), entertainment_path(e) %>
+              <% if current_user.present? and current_user.admin? %>
+              <%= link_to t(:edit), edit_entertainment_path(e) %>
+              <%= link_to t(:destroy), e, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>  
+    <% end %>
+</div>
+<br>
+<div class="center">
+<%= will_paginate @entertainments %>
+</div>
+<br>
+<% if current_user.present? and current_user.admin? %>
+<div class="container center">
+  <%= link_to t(".add"), new_entertainment_path, class: "waves-effect waves-light btn midle" %>
+</div>
+<% end %>

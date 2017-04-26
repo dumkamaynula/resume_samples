@@ -1,0 +1,42 @@
+
+
+
+
+<% if current_user.present? and current_user.admin? %>
+<%= form_for(booking_post, html: {multipart: true}, class: "col s12") do |f| %>
+  <% if booking_post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(booking_post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% booking_post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="input-field col s6">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "validate" %>
+  </div>
+
+   <div class="input-field col s6">
+    <%= f.label :description %>
+    <%= f.text_area :description, id: "textarea1", class: "materialize-textarea" %>
+  </div>
+  <div class="input-field col s6">
+    <%= f.label :title2 %>
+    <%= f.text_field :title2, class: "validate" %>
+  </div>
+
+   <div class="input-field col s6">
+    <%= f.label :description2 %>
+    <%= f.text_area :description2, id: "textarea1", class: "materialize-textarea" %>
+  </div>
+
+  <div class="waves-effect waves-light btn">
+    <%= f.submit "OK" %>
+  </div>  
+  
+<% end %>
+<% end %>

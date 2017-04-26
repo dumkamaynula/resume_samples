@@ -1,0 +1,11 @@
+<% if current_user.present? and current_user.admin? %>s
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Album:</strong>
+  <%= @image.album_id %>
+</p>
+
+<%= link_to 'Edit', edit_image_path(@image) %> |
+<%= link_to 'Back', images_path %>
+<% end %>
