@@ -11,8 +11,8 @@ nav a:hover {
 }
 </style>
 <header>
-    <div class="navbar-fixed" >
-      <nav>
+    <div class="navbar-fixed">
+      <nav/>
         <div class="nav-wrapper white"> <a href="#!" class="brand-logo" style="color:black;">Logo</a>
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons" style="color:black;">menu</i></a>
           <ul class="right hide-on-med-and-down">
@@ -24,12 +24,12 @@ nav a:hover {
             <li class="<%= 'active' if current_page?(contacts_path)%>"><%= link_to t(:contacts), contacts_path, style:"color: black;"%></li>
 
             <%if current_page?(locale: :ua) == false%>
-              <li><%= link_to "UA", locale: :ua %></li>
+              <li style="color: black;"><%= link_to "UA", locale: :ua %></li>
             <% end %>
 
 
             <%if current_page?(locale: :ru) == false %>
-              <li><%= link_to "RU", locale: :ru %></li>
+              <li style="color: black;"><%= link_to "RU", locale: :ru %></li>
             <% end %>
 
             <% if current_user.present? and current_user.admin? %>

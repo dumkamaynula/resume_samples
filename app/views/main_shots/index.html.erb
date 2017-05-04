@@ -51,7 +51,6 @@
 <!------------>
 <% if current_page?(locale: :ua) %>
 <% if current_user.present? and current_user.admin? %>
-  <h1 class="center"><%=t('.title')%></h1>
   <div class="container center">
     <%= link_to t('.add'), new_main_shot_path, class: "waves-effect waves-light btn midle" %>
   </div>
@@ -90,7 +89,6 @@
 <!------------>
 <% if current_page?(locale: :ru) %>
 <% if current_user.present? and current_user.admin? %>
-  <h1 class="center"><%=t('.title')%></h1>
   <div class="container center">
     <%= link_to t('.add'), new_main_shot_path, class: "waves-effect waves-light btn midle" %>
   </div>
