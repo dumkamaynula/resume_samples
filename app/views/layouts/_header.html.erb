@@ -9,12 +9,24 @@ nav ul li:hover {
 nav a:hover {
   background-color: white;
 }
+nav a{
+  color: black !important;
+}
+
+
+.dropdown-content {
+  min-width: 0;
+  min-height: 0;
+  overflow: visible !important;
+}
+
 </style>
 <header>
     <div class="navbar-fixed">
-      <nav/>
-        <div class="nav-wrapper white"> <a href="#!" class="brand-logo" style="color:black;">Logo</a>
+      <nav style="background: rgba(255,255,255,0.5);">
+        <div class="nav-wrapper"> <a href="#!" class="brand-logo" style="color:black;">Logo</a>
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons" style="color:black;">menu</i></a>
+
           <ul class="right hide-on-med-and-down">
             <li class="<%= 'active' if current_page?(root_path)%>"><%= link_to t(:main), root_url, style:"color: black;"%></li>
             <li class="<%= 'active' if current_page?(new_post_path) or (@post.present? and current_page?(post_path(@post))) or current_page?(posts_path)%>"><%= link_to t(:news), posts_path, style:"color: black;"%></li>
@@ -31,16 +43,21 @@ nav a:hover {
             <%if current_page?(locale: :ru) == false %>
               <li style="color: black;"><%= link_to "RU", locale: :ru %></li>
             <% end %>
-
             <% if current_user.present? and current_user.admin? %>
-              <li class="<%= 'active' if current_page?(reservations_path)%>" ><%= link_to t(:reservation_list), reservations_path, style:"color: black;"%></li>
-              <li class="<%= 'active' if current_page?(contact_us_path)%>"><%= link_to t(:contact_us), contact_us_path, style:"color: black;"%></li>
+            <li>
+              <a class="dropdown-button" href="#!" data-activates="account-dropdown">Administrator</a>
+              <ul id="account-dropdown" class="dropdown-content">
+                  
+                  <li class="<%= 'active' if current_page?(reservations_path)%>"><%= link_to t(:reservation_list), reservations_path, style:"color: black;"%></li>
+                  <li class="<%= 'active' if current_page?(contact_us_path)%>"><%= link_to t(:contact_us), contact_us_path, style:"color: black;"%></li>
+                  
+                <% if logged_in? %>
+                  <li class="<%= 'active' if (current_user.present? and current_page?(edit_user_path(current_user)))%>"><%= link_to t(:settings), edit_user_path(current_user), style:"color: black;" %></li>
+                  <li><%= link_to t(:logout), logout_path, method: "delete", style:"color: black;" %></li>
+                <% end %>
+              </ul>
+            </li>
             <% end %>
-            <% if logged_in? %>
-            <li class="<%= 'active' if (current_user.present? and current_page?(edit_user_path(current_user)))%>"><%= link_to t(:settings), edit_user_path(current_user), style:"color: black;" %></li>
-            <li ><%= link_to t(:logout), logout_path, method: "delete", style:"color: black;" %></li>
-            <% end %>
-
             </ul>
           </div>
       </nav>
@@ -98,6 +115,18 @@ if (typeof(jQuery) === 'undefined') {
     $('.parallax').parallax();
     $('.slider').slider({full_width: true});
     $('.modal').modal();
+    $('.dropdown-button').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      constrain_width: true, // Does not change width of dropdown to that of the activator
+      hover: true, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: true, // Displays dropdown below the button
+      alignment: 'left' // Displays dropdown with edge aligned to the left of button
+      }
+    );
+        
+        
 
   }); // end of document ready
 })(jQuery); // end of jQuery name space
