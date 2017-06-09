@@ -1,24 +1,4 @@
-# README
+Simple online store as sample for resume
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+You need to setup your mailer credential before using users_controller (for user activation and password reset). Anyway you can use rails db:seed to generate admin_account and after login with email: sitetest.2@yandex.ua and passwod: a123d123m 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
