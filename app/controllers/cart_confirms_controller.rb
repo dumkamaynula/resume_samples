@@ -23,7 +23,7 @@ class CartConfirmsController < ApplicationController
     @cart_confirm.destroy
       respond_to do |format|
         format.html { redirect_to :back, notice: 'Cart confirmation was successfully destroyed.' }
-        format.json { head :no_content }
+      
       end
   end
 

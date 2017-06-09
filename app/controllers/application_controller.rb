@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     before_action :set_locale
     before_action :load_contacts
     before_action :load_shopping_cart
-    #before_action :check_cart_session
+
     before_action :set_user_to_shopping_cart
 
 private
@@ -29,15 +29,6 @@ private
     #def default_url_options
     #    { locale: I18n.locale == I18n.default_locale ? nil : I18n.locale }
     #end
-
-    def check_cart_session
-        @shopping_cart = ShoppingCart.find(session[:shopping_cart_id]) if @shopping_cart.present?
-        if @shopping_cart.nil? 
-            session.delete(:shopping_cart_id)
-            @shopping_cart = ShoppingCart.create
-            session[:shopping_cart_id] = @shopping_cart.id
-        end
-    end
 
     def load_shopping_cart
         if session[:shopping_cart_id]

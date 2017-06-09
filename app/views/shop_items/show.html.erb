@@ -14,11 +14,7 @@
       <div class="card hoverable">
         <div class="card-image">
           <%= image_tag @shop_item.shop_image.url(:large) %>
-            <%#if @shop_item.black == true%>
-              <!--span class="card-title truncate", style="color: black;"><td><%#= @post.title %></td></span-->
-            <%#else%>
-              <span class="card-title truncate"><td><%= @shop_item.title1 %></td></span>
-            <%#end%>      
+              <span class="card-title truncate"><td><%= @shop_item.title1 %></td></span>   
         </div>
         <div class="card-content">
           <h5><%= t(:price)%>: <%= @shop_item.price%></h5>
@@ -61,11 +57,8 @@
       <div class="card hoverable">
         <div class="card-image">
           <%= image_tag @shop_item.shop_image.url(:large) %>
-            <%#if @post.black == true%>
-              <!--span class="card-title truncate", style="color: black;"><td><%#= @post.title2 %></td></span-->
-            <%#else%>
-              <span class="card-title truncate"><td><%= @shop_item.title2 %></td></span>
-            <%#end%>      
+
+              <span class="card-title truncate"><td><%= @shop_item.title2 %></td></span>  
         </div>
         <div class="card-content">
           <h5><%= t(:price)%>: <%= @shop_item.price%></h5>

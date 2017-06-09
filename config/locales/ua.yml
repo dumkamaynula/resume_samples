@@ -1,30 +1,4 @@
 ua:
-  shopping_carts:
-    index:
-      title: Кошики
-      user: Користувач
-      confirmation: Підтвердження
-      contact_info: Контактна інформація
-    show:
-      title: Назва
-      quantity: Кількість
-      price_for_piece: Ціна за одиницю
-      total_price: Загальна вартість
-      update: Оновити
-      show_item: Показати товар
-      items: Предмети
-      destroy_shopping_cart: Видалити кошик
-      state: Країна
-      city: Населений пункт
-      address: Адреса
-      zip_code: Поштовий індекс
-      email: Електронна адреса
-      phone: Номер телефону
-      full_name: П.І.Б.
-      confirm: Зробити замовлення
-      confirm_line: Ваше замовлення модерується 
-      guest: Гість
-      delivery_information: Контактна інформація
   main_shots:
     index:
       title: Повідомлення головної сторінки
@@ -84,6 +58,32 @@ ua:
     index:
       title: Слайди розділу новин
       add: Додати слайд
+  shopping_carts:
+    index:
+      title: Кошики
+      user: Користувач
+      confirmation: Підтвердження
+      contact_info: Контактна інформація
+    show:
+      title: Назва
+      quantity: Кількість
+      price_for_piece: Ціна за одиницю
+      total_price: Загальна вартість
+      update: Оновити
+      show_item: Показати товар
+      items: Предмети
+      destroy_shopping_cart: Видалити кошик
+      state: Країна
+      city: Населений пункт
+      address: Адреса
+      zip_code: Поштовий індекс
+      email: Електронна адреса
+      phone: Номер телефону
+      full_name: П.І.Б.
+      confirm: Зробити замовлення
+      confirm_line: Ваше замовлення модерується 
+      guest: Гість
+      delivery_information: Контактна інформація
   price: ціна
   add_to_cart: додати у кошик 
   quantity: кількість
@@ -242,3 +242,33 @@ ua:
   forgot_password: забули пароль?
   login_email: Електронна адреса
   login_password: Пароль
+  
+
+ 
+
+  index_title: Кошики
+  index_user: Користувач
+  index_confirmation: Підтвердження
+  index_contact_info: Контактна інформація
+    
+
+
+  show_title: Назва
+  show_quantity: Кількість
+  show_price_for_piece: Ціна за одиницю
+  show_total_price: Загальна вартість
+  show_update: Оновити
+  show_show_item: Показати товар
+  show_items: Предмети
+  show_destroy_shopping_cart: Видалити кошик
+  show_state: Країна
+  show_city: Населений пункт
+  show_address: Адреса
+  show_zip_code: Поштовий індекс
+  show_email: Електронна адреса
+  show_phone: Номер телефону
+  show_full_name: П.І.Б.
+  show_confirm: Зробити замовлення
+  show_confirm_line: Ваше замовлення модерується 
+  show_guest: Гість
+  show_delivery_information: Контактна інформація 

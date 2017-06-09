@@ -19,7 +19,7 @@
   </div>
 <% else %>
   <div class="container">
-  <h5> <%= t(".guest")%></h5>
+  <h5> <%= t(:show_guest)%></h5>
   </div>
 <% end %>
 
@@ -29,10 +29,10 @@
   <thead>
     <tr>
       <td></td>
-      <td><%=t(".title")%></td>
-      <td><%=t(".quantity")%></td>
-      <td><%=t(".price_for_piece")%></td>
-      <td><%=t(".total_price")%></td>
+      <td><%=t(:show_title)%></td>
+      <td><%=t(:show_quantity)%></td>
+      <td><%=t(:show_price_for_piece)%></td>
+      <td><%=t(:show_total_price)%></td>
       <td></td>
     </tr>
   </thead>
@@ -56,12 +56,12 @@
               </div>
             <% end %>
             <div class="input-field col s3">
-              <%= f.label t(".quantity") %>
+              <%= f.label t(:show_quantity) %>
               <%= f.number_field :quantity %>
             </div>
             <br>
             <div class="waves-effect waves-light btn">
-              <%= f.submit t(".update")%>
+              <%= f.submit t(:show_update)%>
             </div>
         </div>
       </td>
@@ -72,7 +72,7 @@
       <td><%= cart_item.shop_price %></td>
       <td><%= cart_item.shop_price*cart_item.quantity %></td>
       <td>
-        <p><%= link_to t(".show_item"), cart_item.shop_item %></p>
+        <p><%= link_to t(:show_show_item), cart_item.shop_item %></p>
         <p><%= link_to t(:destroy), cart_item, method: :delete, data: { confirm: 'Are you sure?' } if !@confirmation.present?%></p>
       </td>
     </tr>
@@ -83,13 +83,13 @@
 <div class="center">
 <%= will_paginate @cart_items %>
 </div>
-<h5 class="center"><%=t(".items")%>: <%= @cart_items.count %>. <%=t(".total_price")%>: <%= @cart_items_price %></h5>
+<h5 class="center"><%=t(:show_items)%>: <%= @cart_items.count %>. <%=t(:show_total_price)%>: <%= @cart_items_price %></h5>
 </div>
 <% end %>
 <br>
 <% unless @confirmation.present? %>
 <div class="container">
-  <div class="waves-effect waves-light btn center"><%= button_to t(".destroy_shopping_cart"), @shopping_cart, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <div class="waves-effect waves-light btn center"><%= button_to t(:show_destroy_shopping_cart), @shopping_cart, method: :delete, data: { confirm: 'Are you sure?' } %>
   </div>
 </div>
 <% end %>
@@ -100,7 +100,7 @@
 
 
 <div class="container">
-<h5><%=t(".delivery_information")%></h5>
+<h5><%=t(:show_delivery_information)%></h5>
 <%= form_for([@shopping_contact.shopping_cart, @shopping_contact], html: {multipart: true}, class: "col s12 m6") do |f| %>
   <% if @shopping_contact.errors.any? %>
     <div id="error_explanation">
@@ -165,14 +165,14 @@
     <div class="card">
       <div class="row">
         <div class="col m6 ">
-          <p><%=t(".state")%>: <%= @current_contact.state %></p>
-          <p><%=t(".address")%>: <%= @current_contact.adress %></p>
-          <p><%=t(".zip_code")%>: <%= @current_contact.zip_code %></p>
+          <p><%=t(:show_state)%>: <%= @current_contact.state %></p>
+          <p><%=t(:show_address)%>: <%= @current_contact.adress %></p>
+          <p><%=t(:show_zip_code)%>: <%= @current_contact.zip_code %></p>
         </div>
         <div class="col m6 ">  
-          <p><%=t(".email")%>: <%= @current_contact.email %></p>
-          <p><%=t(".phone")%>: <%= @current_contact.phone %></p>
-          <p><%=t(".full_name")%>: <%= @current_contact.full_name %></p>
+          <p><%=t(:show_email)%>: <%= @current_contact.email %></p>
+          <p><%=t(:show_phone)%>: <%= @current_contact.phone %></p>
+          <p><%=t(:show_full_name)%>: <%= @current_contact.full_name %></p>
         </div>
       </div>
     <%unless @confirmation.present?%>  
@@ -209,7 +209,7 @@
   </div>
 <% else%>
   <% unless !@current_contact.present?%>
-  <div class="container"><h3 class="center"><%=t(".confirm_line")%></h3></div>
+  <div class="container"><h3 class="center"><%=t(:show_confirm_line)%></h3></div>
   <% end %>
 <% end %>
 

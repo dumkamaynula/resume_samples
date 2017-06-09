@@ -240,3 +240,30 @@ ru:
   forgot_password: забыли пароль?
   login_email: Электронный адрес
   login_password: Пароль
+
+
+
+  index_title: Корзины
+  index_user: Пользователь
+  index_confirmation: Подтверждение
+  index_contact_info: Контактная информация
+
+  show_title: Название
+  show_quantity: Количество
+  show_price_for_piece: Цена за единицу
+  show_total_price: Общая стоимость
+  show_update: Обновить
+  show_show_item: Показать товар
+  show_items: Предметы
+  show_destroy_shopping_cart: Удалить корзину
+  show_state: Страна
+  show_city: Населенный пункт
+  show_address: Адрес
+  show_zip_code: Почтовый индекс
+  show_email: Электронный адрес
+  show_phone: Номер телефона
+  show_full_name: Ф.И.О.
+  show_confirm: Сделать заказ
+  show_confirm_line: Ваш заказ модерируется 
+  show_guest: Гость
+  show_delivery_information: Контактная информация
