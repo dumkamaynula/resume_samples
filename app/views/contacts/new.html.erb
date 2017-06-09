@@ -1,3 +1,4 @@
+<% provide(:title, "New contacts") %>  
 <% if @no_contacts == true and current_user.present? and current_user.admin? %>
 <h2 class="center"><%= t(:new_contact_title)%></h2>
 	<%= render 'form', contact: @contact %>

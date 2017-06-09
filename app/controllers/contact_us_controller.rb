@@ -10,7 +10,7 @@ class ContactUsController < ApplicationController
   # GET /contact_us/1
   # GET /contact_us/1.json
   def show
-          @contact_u = ContactU.find(params[:id])
+    @contact_u = ContactU.find(params[:id])
   end
 
   # GET /contact_us/new
@@ -25,18 +25,18 @@ class ContactUsController < ApplicationController
   # POST /contact_us
   # POST /contact_us.json
   def create
-      @email= User.where(admin: true).first.email
-      @contact_u = ContactU.new(contact_u_params)
+    @email= User.where(admin: true).first.email
+    @contact_u = ContactU.new(contact_u_params)
 
-      respond_to do |format|
-        if @contact_u.save
-          @saved_contact_u = @contact_u
-          format.html { redirect_to :back, notice: 'Your message successfully sent.' }
-          ContactMailer.fresh_message(@saved_contact_u, @email).deliver_now
-        else
-        format.html {redirect_to :back, notice: "You missed message or email"}
-        end
+    respond_to do |format|
+      if @contact_u.save
+        @saved_contact_u = @contact_u
+        format.html { redirect_to :back, notice: 'Your message successfully sent.' }
+        #ContactMailer.fresh_message(@saved_contact_u, @email).deliver_now
+      else
+      format.html {redirect_to :back, notice: "You missed message or email"}
       end
+    end
   end
 
   # PATCH/PUT /contact_us/1

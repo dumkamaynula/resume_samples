@@ -1,4 +1,30 @@
 ru:
+  shopping_carts:
+    index:
+      title: Корзины
+      user: Пользователь
+      confirmation: Подтверждение
+      contact_info: Контактная информация
+    show:
+      title: Название
+      quantity: Количество
+      price_for_piece: Цена за единицу
+      total_price: Общая стоимость
+      update: Обновить
+      show_item: Показать товар
+      items: Предметы
+      destroy_shopping_cart: Удалить корзину
+      state: Страна
+      city: Населенный пункт
+      address: Адрес
+      zip_code: Почтовый индекс
+      email: Электронный адрес
+      phone: Номер телефона
+      full_name: Ф.И.О.
+      confirm: Сделать заказ
+      confirm_line: Ваш заказ модерируется 
+      guest: Гость
+      delivery_information: Контактная информация
   main_shots:
     index:
       title: Сообщения главной страницы
@@ -7,6 +33,13 @@ ru:
       title: Редактировать сообщение главной страницы
     new:
       title: Создать сообщение главной страницы
+  shop_items:
+    index:
+      add: Добавить товар
+    edit:
+      title: Редактировать товар
+    new:
+      title: Добавить товар
   posts:
     index:
       title: Новости
@@ -51,7 +84,9 @@ ru:
     index:
       title: Слайды страницы новостей
       add: Добавить слайд
-
+  price: цена
+  add_to_cart: добавить в корзину
+  quantity: количество
   contact_us_title: Сообщения
   contact_us_email: E-mail
   contact_us_message: Сообщение
@@ -84,6 +119,11 @@ ru:
   
   helpers:
     label:
+      user:
+        name: Никнейм
+        email: Электронный адрес
+        password: Пароль
+        password_confirmation: Подтверждение пароля
       post:
         title: Название (ua)
         description: Описание (ua)
@@ -114,6 +154,7 @@ ru:
         description2: Описание (ru)
       reservation:
         start: Дата заезда
+        reservation_time: Время
         end: Дата отъезда
         name: Ф.И.О.
         email: E-mail
@@ -127,10 +168,25 @@ ru:
         title2: Название (ru)
         description2: Описаниеs (ru)
         black: Название чорным цветом
+      shop_item:
+        title1: Название (ua)
+        title2: Название (ru)
+        description1: Описание (ua)
+        description2: Описание (ru)
+        price: Цена
+      shopping_contact:
+        state: Страна
+        city: Населенный пункт
+        address: Адрес
+        zip_code: Почтовый индекс
+        email: Электронный адрес
+        phone: Номер телефона
+        full_name: Ф.И.О.
   reservations: Бронирование
   edit_reservation: Редактировать бронирование
   booking_post: Объект бронирования
   start: Дата заезда
+  reservation_time: Время
   end: Дата отъезда
   name: Ф.И.О.
   email: E-mail
@@ -165,7 +221,22 @@ ru:
   profile: Админка
   reservation_list: Заказы
   contact_us: Сообщения
+  store: Каталог товаров
+  cart: Корзина
+  shopping_carts: Заказы
+  
+  create_account: Создать аккаунт
+  save_changes: Сохранить изменения
+  sign_up: Регистрация
+  update_profile: Обновить аккаунт
 
   will_paginate:
     next_label: Далее
     previous_label: Назад
+
+  log_in: Войти
+  is_new_user: Новый пользователь?
+  sign_up_now: Зарегистрироваться
+  forgot_password: забыли пароль?
+  login_email: Электронный адрес
+  login_password: Пароль

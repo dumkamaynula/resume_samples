@@ -45,14 +45,14 @@ default: &default
 development:
   <<: *default
   host: localhost
-  database: template2_development
+  database: store2
 
 test:
   <<: *default
-  database: template2_test
+  database: store_test
 
 production:
   <<: *default
-  database: template3_production
+  database: store_production
   username: postgres
   password: 'myPassword'

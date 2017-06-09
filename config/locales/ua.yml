@@ -1,4 +1,30 @@
 ua:
+  shopping_carts:
+    index:
+      title: Кошики
+      user: Користувач
+      confirmation: Підтвердження
+      contact_info: Контактна інформація
+    show:
+      title: Назва
+      quantity: Кількість
+      price_for_piece: Ціна за одиницю
+      total_price: Загальна вартість
+      update: Оновити
+      show_item: Показати товар
+      items: Предмети
+      destroy_shopping_cart: Видалити кошик
+      state: Країна
+      city: Населений пункт
+      address: Адреса
+      zip_code: Поштовий індекс
+      email: Електронна адреса
+      phone: Номер телефону
+      full_name: П.І.Б.
+      confirm: Зробити замовлення
+      confirm_line: Ваше замовлення модерується 
+      guest: Гість
+      delivery_information: Контактна інформація
   main_shots:
     index:
       title: Повідомлення головної сторінки
@@ -7,6 +33,13 @@ ua:
       title: Редагувати повідомлення головної сторінки
     new:
       title: Створити повідомлення головної сторінки
+  shop_items:
+    index:
+      add: Додати товар
+    edit:
+      title: Редагувати товар
+    new:
+      title: Додати товар
   posts:
     index:
       title: Новини
@@ -51,6 +84,9 @@ ua:
     index:
       title: Слайди розділу новин
       add: Додати слайд
+  price: ціна
+  add_to_cart: додати у кошик 
+  quantity: кількість
 
   contact_us_title: Повідомлення
   contact_us_email: E-mail
@@ -84,6 +120,11 @@ ua:
   
   helpers:
     label:
+      user:
+        name: Нікнейм
+        email: Електронна адреса
+        password: Пароль
+        password_confirmation: Підтвердження паролю
       post:
         title: Назва (ua)
         title2: Назва (ru)
@@ -114,6 +155,7 @@ ua:
         description2: Опис (ru)
       reservation:
         start: Дата заїзду
+        reservation_time: Час
         end: Дата виїзду
         name: П.І.Б.
         email: E-mail
@@ -127,10 +169,25 @@ ua:
         title2: Назва (ru)
         description2: Опис (ru)
         black: Назва чорним кольором
+      shop_item:
+        title1: Назва (ua)
+        title2: Назва (ru)
+        description1: Опис (ua)
+        description2: Опис (ru)
+        price: Ціна
+      shopping_contact:
+        state: Країна
+        city: Населений пункт
+        address: Адреса
+        zip_code: Поштовий індекс
+        email: Електронна адреса
+        phone: Номер телефону
+        full_name: П.І.Б.
   reservations: Бронювання
   edit_reservation: Редагувати бронювання
   booking_post: Об'єкт бронювання
   start: Дата заїзду
+  reservation_time: Час
   end: Дата виїзду
   name: П.І.Б.
   email: E-mail
@@ -166,7 +223,22 @@ ua:
   profile: Адмінка
   reservation_list: Замовлення
   contact_us: Повідомлення
+  store: Каталог товарів
+  cart: Кошик
+  shopping_carts: Замовлення
+  
+  create_account: Створити аккаунт
+  save_changes: Зберегти зміни
+  sign_up: Реєстрація
+  update_profile: Оновити аккаунт
 
   will_paginate:
     next_label: Далі
     previous_label: Назад
+
+  log_in: Увійти
+  is_new_user: Новий користувач?
+  sign_up_now: Зареєструватися
+  forgot_password: забули пароль?
+  login_email: Електронна адреса
+  login_password: Пароль

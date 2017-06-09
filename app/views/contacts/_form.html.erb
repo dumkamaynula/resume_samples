@@ -1,3 +1,4 @@
+<div class="container">
 <% if current_user.present? and current_user.admin? %>
 <%= form_for(contact, class: "col s12") do |f| %>
   <% if contact.errors.any? %>
@@ -75,3 +76,4 @@
   
 <% end %>
 <% end %>
+</div>

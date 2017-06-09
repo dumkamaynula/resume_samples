@@ -7,10 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Position.delete_all
-Position.create!(:align => 'left')
-Position.create!(:align => 'center')
-Position.create!(:align => 'right')
 User.delete_all
 
 User.create!(:email => 'sitetest.2@yandex.ua', :name => 'admin', :password => 'a123d123m', :activated_at => Time.now, :activated => true, :admin => true)

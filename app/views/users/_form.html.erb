@@ -1,4 +1,4 @@
-
+<div class="container">
 
 <%= form_for(@user) do |f| %>
   <%= render 'shared/error_messages', object: @user %>
@@ -18,3 +18,4 @@
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
 
+</div>

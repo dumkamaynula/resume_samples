@@ -13,5 +13,7 @@ module Parallax
     # -- all .rb files in that directory are automatically loaded.
     config.i18n.available_locales = [:ru, :ua]
   	config.i18n.default_locale = :ua
+
+  	#config.active_record.time_zone_aware_types = [:datetime, :time]
   end
 end
